@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taylor-Ku - Jasa Penjahit Profesional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#home" class="logo">TAYLOR-KU</a>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#order">Pesan</a></li>
+                <li><a href="#about">Tentang</a></li>
+            </ul>
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <h1>Jasa Penjahit Profesional</h1>
+            <p>Wujudkan pakaian impian Anda dengan kualitas terbaik, jahitan rapi, dan harga terjangkau.</p>
+            <button class="cta-button" onclick="scrollToOrder()">Pesan Sekarang</button>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2 class="section-title">Layanan Kami</h2>
+                <div class="services-grid" id="servicesGrid">
+                    </div>
+            </div>
+        </section>
+
+        <section id="order" class="form-section">
+            <div class="container">
+                <h2 class="section-title">Buat Pesanan Anda</h2>
+                <form class="order-form" id="orderForm">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" required placeholder="nama lengkap">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon (WhatsApp)</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="Contoh: 081234567890">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email (Opsional)</label>
+                        <input type="email" id="email" name="email" placeholder="Contoh: budi@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Pilih Layanan *</label>
+                        <select id="service" name="service" required>
+                            <option value="">-- Pilih salah satu layanan --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Alamat Lengkap (Opsional)</label>
+                        <textarea id="address" name="address" rows="3" placeholder="Untuk layanan antar-jemput"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Catatan Tambahan</label>
+                        <textarea id="notes" name="notes" rows="4" placeholder="Jelaskan detail pesanan Anda seperti ukuran, model, warna, atau permintaan khusus lainnya."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Kirim Pesanan</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title">Tentang Kami</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Pengalaman 15+ Tahun dalam Dunia Jahit</h3>
+                        <p>Taylor Berkah adalah jasa penjahit profesional yang berdedikasi untuk memberikan hasil jahitan berkualitas tinggi. Dengan pengalaman lebih dari 15 tahun, kami memahami setiap detail untuk menciptakan pakaian yang pas, nyaman, dan sesuai dengan gaya Anda.</p>
+                        <p>Kepercayaan pelanggan adalah prioritas kami. Kami berkomitmen untuk memberikan layanan terbaik, mulai dari konsultasi desain hingga penyelesaian yang tepat waktu.</p>
+                        
+                        <div class="features">
+                            <div class="feature">
+                                <div class="feature-icon">✅</div>
+                                <strong>Kualitas Terjamin</strong>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">⏱️</div>
+                                <strong>Tepat Waktu</strong>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">💰</div>
+                                <strong>Harga Kompetitif</strong>
+                            </div>
+                            <div class="feature">
+                                <div class="feature-icon">🎨</div>
+                                <strong>Desain Custom</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <small class="block">&copy; 2025 Taylor-Ku. All rights reserved.</small>
+            <small class="block">Design by <a href="https://instagram.com/alviusmanharita">@alviusmanharita</a></small>
+            <ul class="mt-3">
+                <li><a class='' href="https://www.instagram.com/alviusmanharita/#"><i class="bi bi-instagram"></i></a></li>
+                <li><a class='' href="https://web.facebook.com/alviusman.harita.2025/#"><i class="bi bi-facebook"></i></a></li>
+                <li><a class='' href="https://wa.link/xls2xd/#"><i class="bi bi-whatsapp"></i></a></li>
+                <li><a class='' href="https://www.threads.com/@alviusmanharita/#"><i class="bi bi-threads"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="color: #667eea; margin-bottom: 1rem;">✅ Pesanan Berhasil Terkirim!</h2>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script>
+        // --- API Configuration ---
+        const API_URL = 'http://localhost:3000/api';
+
+        // --- Mobile Navigation (Hamburger Menu) ---
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-links");
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+        document.querySelectorAll(".nav-links a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+
+        // --- Load Services into Grid ---
+        async function loadServices() {
+            try {
+                const response = await fetch(`${API_URL}/services`);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const result = await response.json();
+                const services = result.success ? result.data : getDummyServices();
+                displayServices(services);
+                populateServiceSelect(services);
+            } catch (error) {
+                console.error('Error loading services, using dummy data:', error);
+                const dummyServices = getDummyServices();
+                displayServices(dummyServices);
+                populateServiceSelect(dummyServices);
+            }
+        }
+
+        function displayServices(services) {
+            const grid = document.getElementById('servicesGrid');
+            if (!grid) return;
+            if (!services || services.length === 0) {
+                grid.innerHTML = '<p>Saat ini belum ada layanan yang tersedia.</p>';
+                return;
+            }
+            grid.innerHTML = services.map(service => `
+                <div class="service-card">
+                    <img src="${service.image}" alt="${service.name}" class="service-image">
+                    <div class="service-content">
+                        <h3>${service.name}</h3>
+                        <p>${service.description}</p>
+                        <div class="service-price">Rp ${service.price.toLocaleString('id-ID')}</div>
+                        <div class="service-duration">⏱️ Estimasi ${service.duration}</div>
+                        <button class="order-btn" onclick="scrollToOrder(${service.id})">Pesan Layanan Ini</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // --- Helper Functions (Form, Modal, etc.) ---
+        function populateServiceSelect(services) {
+            const select = document.getElementById('service');
+            select.innerHTML = '<option value="">-- Pilih salah satu layanan --</option>';
+            services.forEach(service => {
+                const option = document.createElement('option');
+                option.value = service.id;
+                option.textContent = `${service.name} - Rp ${service.price.toLocaleString('id-ID')}`;
+                select.appendChild(option);
+            });
+        }
+
+        function scrollToOrder(serviceId = null) {
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+            if (serviceId) {
+                document.getElementById('service').value = serviceId;
+            }
+        }
+        
+        document.getElementById('orderForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = { name: document.getElementById('name').value, phone: document.getElementById('phone').value, email: document.getElementById('email').value, serviceId: document.getElementById('service').value, address: document.getElementById('address').value, notes: document.getElementById('notes').value };
+            try {
+                const response = await fetch(`${API_URL}/orders`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(formData) });
+                const result = await response.json();
+                if (result.success) {
+                    showModal(`Terima kasih, ${formData.name}! Pesanan Anda telah kami terima.`);
+                    document.getElementById('orderForm').reset();
+                } else { alert('Gagal: ' + result.message); }
+            } catch (error) {
+                showModal(`(Mode Demo) Terima kasih, ${formData.name}! Pesanan Anda telah diterima.`);
+                document.getElementById('orderForm').reset();
+            }
+        });
+
+        function showModal(message) { document.getElementById('modalMessage').textContent = message; document.getElementById('successModal').style.display = 'block'; }
+        function closeModal() { document.getElementById('successModal').style.display = 'none'; }
+        window.onclick = function(event) { if (event.target == document.getElementById('successModal')) { closeModal(); } }
+
+        function getDummyServices() {
+            return [
+                { id: 1, name: 'Jahit Kemeja Pria', description: 'Pembuatan kemeja pria custom fit.', price: 150000, duration: '5-7 Hari', image: 'https://images.unsplash.com/photo-1603252109303-2751441dd157?q=80&w=700&auto=format&fit=crop' },
+                { id: 2, name: 'Jahit Gaun Wanita', description: 'Pembuatan gaun pesta atau harian.', price: 250000, duration: '7-10 Hari', image: 'https://images.unsplash.com/photo-1595991209266-5ff5a3a2f129?q=80&w=700&auto-format&fit=crop' },
+                { id: 3, name: 'Permak Celana', description: 'Memperbaiki atau mengubah ukuran.', price: 50000, duration: '1-2 Hari', image: 'https://images.unsplash.com/photo-1602293589922-3856a2a912e6?q=80&w=700&auto-format&fit=crop' }
+            ];
+        }
+
+        // --- Initialize Page ---
+        document.addEventListener('DOMContentLoaded', loadServices);
+    </script>
+</body>
+</html>
