@@ -13,7 +13,9 @@
 <body>
     <header>
         <nav>
-            <a href="#home" class="logo">TAYLOR-KU</a>
+            <a href="#home" class="logo">
+                <img src="img/B.webp" alt="Logo">
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#services">Layanan</a></li>
@@ -30,9 +32,18 @@
 
     <main>
         <section id="home" class="hero">
-            <h1>Jasa Penjahit Profesional</h1>
-            <p>Wujudkan pakaian impian Anda dengan kualitas terbaik, jahitan rapi, dan harga terjangkau.</p>
-            <button class="cta-button" onclick="scrollToOrder()">Pesan Sekarang</button>
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1>
+                        <span class="highlight-primary">Kualitas Jahitan</span>
+                        <span class="highlight-secondary">Terbaik Untuk Anda</span>
+                    </h1>
+                    <p>Wujudkan pakaian impian Anda dengan layanan jahit profesional kami yang mengutamakan detail, kerapian, dan ketepatan waktu.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="img/A.webp" alt="Jasa Penjahit Profesional">
+                </div>
+            </div>
         </section>
 
         <section id="services">
@@ -147,6 +158,17 @@
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
         }));
+
+        const header = document.querySelector("header");
+        window.addEventListener("scroll", () => {
+            // Jika user scroll ke bawah lebih dari 50 pixel
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                // Jika user kembali ke atas
+                header.classList.remove("scrolled");
+            }
+        });
 
         // --- Load Services into Grid ---
         async function loadServices() {

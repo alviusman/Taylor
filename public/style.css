@@ -1,9 +1,10 @@
 
         :root {
-            --primary-color: #040b2b;
-            --secondary-color: #351d4d;
-            --text-dark: #333;
-            --text-light: #2f3841;
+            --primary-color: #233b8e; /* biru elegan */
+            --secondary-color: #fcbf49; /* kuning hangat sebagai aksen */
+            --bg-white: #ffffff;
+            --bg-light: #f7f9fc;
+            --text-dark: #1a1a1a;
             --text-muted: #6c757d;
             --bg-light: #f8f9fa;
             --bg-white: #ffffff;
@@ -40,16 +41,30 @@
 
         /* Header & Navigation */
         header {
-            background-color: rgba(255, 255, 255, 0.459) !important;
-            backdrop-filter: blur(4px);
+            backdrop-filter: blur(5px);
             color: var(--text-dark);
-            padding: 1rem 0;
+            padding: 1.5rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out;
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.466) !important;
             box-shadow: var(--shadow);
-            transition: background 0.3s ease;
+        }
+
+        header .logo {
+        display: flex;
+        align-items: center;
+        }
+
+        header .logo img {
+        width: 100px;
+        height: 60px;
+        margin-right: 20px;
         }
 
         nav {
@@ -59,6 +74,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0 1.5rem;
+             position: relative;
         }
 
         .logo {
@@ -71,7 +87,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         .nav-links a {
@@ -112,7 +128,7 @@
 
         .hamburger .bar {
             display: block;
-            width: 20px;
+            width: 15px;
             height: 3px;
             margin: 3px auto;
             background-color: var(--text-dark);
@@ -120,56 +136,85 @@
         }
         
         /* Hero Section */
+        /* DENGAN KODE BARU INI: */
         .hero {
-            background-image: url(img/A.webp);
-            color: var(--text-light);
-            text-align: center;
-            background-size: cover;
-            min-height: 100vh;          
-            display: flex;              
-            flex-direction: column;     
-            justify-content: center;    
-            align-items: center;        
-            padding: 0 1.5rem;       
-        }
-        
-        .home {
-            background-image: url(img/2.webp);
-            background-size: cover;
+            background: linear-gradient(135deg, #ffffff, #434fbe);
+            width: 100%;
             min-height: 100vh;
-            margin-top: -6.5rem;
-            padding-top: 15rem;
-            padding-bottom: 5rem;
+            display: flex;
+            align-items: center;
+            padding: 6rem 0 2rem 0; /* Memberi jarak dari header */
+            overflow: hidden; /* Mencegah elemen keluar dari section */
         }
-                
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        .hero-container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* --- Kolom Teks (Kiri) --- */
+        .hero-text {
+            flex: 1.2; /* Beri ruang sedikit lebih banyak untuk teks */
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
             font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        .hero-text h1 .highlight-primary {
+            color: var(--primary-color); /* Warna biru dari variabel Anda */
+            display: block;
         }
 
-        .cta-button {
-            background: var(--bg-white);
-            color: var(--primary-color);
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 50px;
+        .hero-text h1 .highlight-secondary {
+            color: #f00000; /* Warna kuning dari variabel Anda */
+            display: block;
+        }
+
+        .hero-text p {
             font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: var(--shadow);
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 5000px;
         }
+
+        /* --- Kolom Gambar (Kanan) --- */
+        .hero-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Bentuk latar belakang di belakang gambar */
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 75%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--border-radius);
+            z-index: 1;
+            transform: rotate(6deg); /* Sedikit memutar */
+        }
+
+        .hero-image img {
+            max-width: 320px;
+            position: relative;
+            z-index: 2; /* Pastikan gambar di atas bentuk latar */
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+            border-radius: var(--border-radius);
+        }
+
 
         .cta-button:hover {
             transform: translateY(-5px);
@@ -193,10 +238,10 @@
         }
 
         .service-card {
-            background: var(--bg-white);
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
@@ -473,34 +518,52 @@
             html {
                 font-size: 60%;
             }
+
             .nav-links {
-                position: fixed;
-                right: -100%;
-                top: 50px; /* Sesuaikan dengan tinggi header */
-                gap: 0;
-                flex-direction: column;
+                /* Mengatur posisi dropdown */
+                position: absolute; 
+                top: calc(100% + 15px); /* Posisi 15px di bawah nav */
+                right: 0; /* Rata kanan dengan nav */
+                
+                /* Tampilan kotak dropdown */
                 background-color: var(--bg-white);
-                width: 70%;
-                height: calc(100vh - 50px);
-                text-align: center;
-                transition: 0.3s;
-                padding-top: 2rem;
-                box-shadow: var(--shadow);
+                width: 250px;
+                height: auto;
+                border-radius: var(--border-radius);
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow-lg);
+                
+                /* Konten di dalamnya */
+                display: flex;
+                flex-direction: column;
+                padding: 0.5rem 0;
+                
+                /* Animasi */
+                opacity: 0;
+                transform: translateY(-10px);
+                visibility: hidden;
+                transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
             }
 
             .nav-links.active {
-                right: 0;
+                opacity: 1;
+                transform: translateY(0);
+                visibility: visible;
             }
+
+            .nav-links a {
+                padding: 0.8rem 1.5rem;
+                text-align: left;
+                display: block;
+                font-size: 1.2rem; /* Ukuran font disesuaikan dari HTML Anda */
+                color: var(--text-dark);
+            }
+                        
 
             .nav-links li {
                 width: 100%;
             }
 
-            .nav-links a {
-                padding: 1.5rem 0;
-                display: block;
-                font-size: 1.2rem;
-            }
             .nav-links a:hover::after {
                 width: 0;
             }
@@ -513,10 +576,55 @@
                 opacity: 0;
             }
             .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
+                transform: translateY(6px) rotate(45deg);
             }
             .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
+                transform: translateY(-6px) rotate(-45deg);
+            }
+
+            .hero {
+                min-height: 40vh; /* Biarkan tinggi menyesuaikan konten */
+                padding: 15rem 0 10rem 0; /* Beri padding atas agar tidak tertutup header */
+            }
+
+            .hero-container {
+                /* HAPUS flex-direction: column; agar tetap 2 kolom */
+                gap: 1.5rem; /* Kurangi jarak antar kolom */
+                padding: 0 1rem; /* Beri sedikit padding samping */
+            }
+
+            .hero-text {
+                /* HAPUS order: 2; */
+                text-align: left; /* Pastikan teks tetap rata kiri */
+            }
+
+            .hero-image {
+                /* HAPUS order: 1; dan margin-bottom */
+                /* Kita bisa sedikit perkecil kolom gambar */
+                flex: 0.8;
+            }
+            
+            /* === Perkecil Ukuran Font === */
+            .hero-text h1 {
+                font-size: 1.8rem; /* Jauh lebih kecil agar muat */
+                line-height: 1.3;
+            }
+
+            .hero-text p {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+
+            /* === Perkecil Ukuran Gambar === */
+            .hero-image img {
+                max-width: 100%; /* Buat gambar responsif terhadap kolomnya */
+            }
+            
+            /* Sesuaikan juga bentuk latar belakangnya */
+            .hero-image::before {
+                height: 110%;
+                width: 100%;
+                transform: rotate(8deg);
             }
 
             /* Other adjustments */
